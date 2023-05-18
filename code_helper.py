@@ -2,8 +2,15 @@
 import streamlit as st
 import openai
 import os
+openai.api_key = st.secrets['OPENAI_API_KEY']
+# openai.api_key = os.getenv("OPENAI_API_KEY")
 
-openai.api_key = os.getenv("OPENAI_API_KEY")
+prompt='''
+
+
+
+'''
+
 
 # GPT-3 API를 호출하여 변수명을 가져오는 함수를 정의합니다.
 def get_variable_name(prompt, description):
@@ -29,5 +36,6 @@ description = st.text_input('Describe the variable you need a name for:')
 
 # 사용자가 설명을 입력하면 함수를 호출합니다.
 if description:
-    variable_name = get_variable_name("I need a Python variable name for:", description)
-    st.write(f"Suggested variable name: `{variable_name}`")
+    with st.spinner('Waiting for ChatGPT...'):
+        variable_name = get_variable_name("I need a Python variable name for:", description)
+        st.write(f"Suggested variable name: `{variable_name}`")
