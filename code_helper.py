@@ -5,19 +5,15 @@ import os
 openai.api_key = st.secrets['OPENAI_API_KEY']
 # openai.api_key = os.getenv("OPENAI_API_KEY")
 
-prompt='''
 
-
-
-'''
 
 
 # GPT-3 API를 호출하여 변수명을 가져오는 함수를 정의합니다.
-def get_variable_name(prompt, description):
+def get_variable_name(prompt):
     try:
         response = openai.Completion.create(
             model="text-davinci-003",
-            prompt=description,
+            prompt=prompt,
             temperature=0,
             max_tokens=60,
             top_p=1.0,
@@ -34,8 +30,26 @@ st.title('Python Variable Name Generator')
 # 사용자 입력 인터페이스를 만듭니다.
 description = st.text_input('Describe the variable you need a name for:')
 
+prompt=f'''
+I want to make class names, functions, and variable names in Python according to the following rules. Please listen to my explanation and write a variable name according to the rules.
+
+Rule 1: In the case of df, dict, and list, you must write it so that it is placed at the front of the variable.
+Rule 2: If the name of a variable is lengthened, use _
+Rule 3: Use nouns as much as you can.
+
+Please follow the most basic Python naming convention for the parts that are not set in the rules.
+
+
+[description]
+{description}
+[Example]
+1.
+2.
+3.
+
+'''
 # 사용자가 설명을 입력하면 함수를 호출합니다.
 if description:
     with st.spinner('Waiting for ChatGPT...'):
-        variable_name = get_variable_name("I need a Python variable name for:", description)
+        variable_name = get_variable_name(prompt)
         st.write(f"Suggested variable name: `{variable_name}`")
