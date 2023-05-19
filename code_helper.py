@@ -54,4 +54,4 @@ Please suggest a total of 3 names as in the example.
 if description:
     with st.spinner('Waiting for ChatGPT...'):
         variable_name = get_variable_name(prompt)
-        st.write(f"Suggested variable name: `{variable_name}`")
+        st.write(variable_name)
