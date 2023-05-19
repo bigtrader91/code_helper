@@ -18,7 +18,8 @@ def get_variable_name(prompt):
             max_tokens=60,
             top_p=1.0,
             frequency_penalty=0.0,
-            presence_penalty=0.0
+            presence_penalty=0.0,
+            n=3
         )
         return response['choices'][0]['text'].strip()
     except Exception as e:
@@ -47,6 +48,7 @@ Please follow the most basic Python naming convention for the parts that are not
 2.
 3.
 
+Please suggest a total of 3 names as in the example.
 '''
 # 사용자가 설명을 입력하면 함수를 호출합니다.
 if description:
