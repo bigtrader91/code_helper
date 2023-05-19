@@ -44,9 +44,10 @@ Please follow the most basic Python naming convention for the parts that are not
 [description]
 {description}
 [Example]
-1.
-2.
-3.
+\n
+1. abc \n
+2. defer \n
+3. fet \n
 
 Please suggest a total of 3 names as in the example.
 '''
