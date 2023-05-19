@@ -38,8 +38,7 @@ Rule 1: In the case of df, dict, and list, you must write it so that it is place
 Rule 2: If the name of a variable is lengthened, use _
 Rule 3: Use nouns as much as you can.
 
-Please follow the most basic Python naming convention for the parts that are not set in the rules.
-
+Please suggest a total of 3 names like the example and answer them in a good way through a new line
 
 [description]
 {description}
