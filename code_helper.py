@@ -34,7 +34,7 @@ description = st.text_input('Describe the variable you need a name for:')
 prompt=f'''
 I want to make class names, functions, and variable names in Python according to the following rules. Please listen to my explanation and write a variable name according to the rules.
 
-Rule 1: In the case of df, dict, and list, you must write it so that it is placed at the front of the variable. Other values follow Python naming conventions.
+Rule 1: 데이터프레임, 딕셔너리, and 리스트 are included in the description, you must write it so that it is placed at the front of the variable. Other values follow Python naming conventions.
 Rule 2: If the name of a variable is lengthened, use _
 Rule 3: Use nouns as much as you can.
 
