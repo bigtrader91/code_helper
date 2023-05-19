@@ -4,32 +4,6 @@ import openai
 import os
 openai.api_key = st.secrets['OPENAI_API_KEY']
 
-
-# GPT-3 API를 호출하여 변수명을 가져오는 함수를 정의합니다.
-def get_variable_name(prompt):
-    try:
-        response = openai.Completion.create(
-            model="text-davinci-003",
-            prompt=prompt,
-            temperature=0,
-            max_tokens=60,
-            top_p=1.0,
-            frequency_penalty=0.0,
-            presence_penalty=0.0,
-            n=3
-        )
-        return response['choices'][0]['text'].strip()
-    except Exception as e:
-        return f"An error occurred: {e}"
-
-# Streamlit 앱을 설정합니다.
-st.title('Python Variable Name Generator')
-
-# 사용자 입력 인터페이스를 만듭니다.
-description = st.text_input('Describe the variable you need a name for:')
-
-
-
 # GPT-3 API를 호출하여 변수명을 가져오는 함수를 정의합니다.
 def get_variable_name(prompt, model_name):
     try:
@@ -53,7 +27,7 @@ st.title('Python Variable Name Generator')
 # 사용자가 모델을 선택할 수 있는 드롭다운 메뉴를 생성합니다.
 model_name = st.selectbox(
     'Select a model:',
-    ('ada', 'curie', 'babbage', 'davinci')
+    ('text-ada-001', 'text-curie-001', 'text-babbage-001', 'text-davinci-003')
 )
 
 # 사용자 입력 인터페이스를 만듭니다.
